@@ -1,0 +1,6 @@
+package thietnn.m4_weekly_exercise_3.configuration.security;
+
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+
+public class ApplicationSecurityInitializer extends AbstractSecurityWebApplicationInitializer {
+}

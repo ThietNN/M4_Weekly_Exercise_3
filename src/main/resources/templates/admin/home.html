@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Category List</h1>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Description</td>
+    </tr>
+    <th:block th:each= "category : ${categoryList}">
+        <tr>
+            <td th:text= "${category.name}"></td>
+            <td th:text= "${category.description}"></td>
+        </tr>
+    </th:block>
+</table>
+<h1>Book List</h1>
+<table>
+    <tr id="bookList">
+        <td>Name</td>
+        <td>Price</td>
+        <td>Author</td>
+        <td>Category</td>
+        <td>Update</td>
+        <td>Delete</td>
+    </tr>
+    <th:block th:each= "book : ${bookList}">
+        <tr>
+            <td th:text= "${book.name}"></td>
+            <td th:text= "${book.author}"></td>
+            <td th:text= "${book.price}"></td>
+            <td th:text= "${book.category.name}"></td>
+
+        </tr>
+    </th:block>
+</table>
+<form>
+    <h1>Create a new Book</h1>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" id="name" placeholder="name"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="number" id="price" placeholder="price"></td>
+        </tr>
+        <tr>
+            <td>Author:</td>
+            <td><input type="text" id="author" placeholder="author"></td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>
+                <select id="category">
+                    <option th:each="category : ${categoryList}" th:value="${category.id}" th:text="${category.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add" onclick="addNewBook()"></td>
+        </tr>
+</table>
+</form>
+</body>
+</html>
